@@ -1,0 +1,1256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbKumaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Armazem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="designacao" Type="uniqueidentifier" />
+          <Property Name="idLocalizacao" Type="int" />
+          <Property Name="createOn" Type="uniqueidentifier" />
+          <Property Name="removeOn" Type="uniqueidentifier" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Artigo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="designacao" Type="varchar(max)" />
+          <Property Name="descricao" Type="varchar(max)" />
+          <Property Name="idLocalizacao" Type="int" />
+          <Property Name="idCategoria" Type="int" />
+          <Property Name="referencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="perdidoEm" Type="datetime" />
+          <Property Name="achadoEm" Type="datetime" />
+          <Property Name="idEmpresa" Type="uniqueidentifier" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ArtigoArmazem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idArtigo" Type="uniqueidentifier" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="idArmazem" Type="uniqueidentifier" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="ArtigoPessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idArtigo" Type="uniqueidentifier" />
+          <Property Name="idPessoa" Type="uniqueidentifier" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="idEmpresa" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="250" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="Actions" Type="nvarchar" MaxLength="1" />
+          <Property Name="OldData" Type="text" />
+          <Property Name="NewData" Type="text" />
+          <Property Name="TableIdValue" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="designacao" Type="varchar(max)" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Doado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="beneficiario" Type="varchar" MaxLength="50" />
+          <Property Name="idArtigo" Type="uniqueidentifier" />
+          <Property Name="descricao" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="designacao" Type="varchar" MaxLength="50" />
+          <Property Name="nuit" Type="varchar" MaxLength="50" />
+          <Property Name="endereco" Type="varchar(max)" />
+          <Property Name="telefone" Type="varchar" MaxLength="50" />
+          <Property Name="pessoaContacto" Type="varchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="idLocalizacao" Type="uniqueidentifier" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Localizacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="designacao" Type="varchar" MaxLength="50" />
+          <Property Name="idPai" Type="uniqueidentifier" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nome" Type="varchar(max)" />
+          <Property Name="idTipoPessoa" Type="uniqueidentifier" />
+          <Property Name="genero" Type="varchar" MaxLength="50" />
+          <Property Name="dataNascimento" Type="datetime" />
+          <Property Name="tel1" Type="varchar" MaxLength="50" />
+          <Property Name="tel2" Type="varchar" MaxLength="50" />
+          <Property Name="email1" Type="varchar" MaxLength="50" />
+          <Property Name="email2" Type="varchar" MaxLength="50" />
+          <Property Name="idEmpresa" Type="uniqueidentifier" />
+          <Property Name="endereco" Type="varchar" MaxLength="50" />
+          <Property Name="idLocalizacao" Type="int" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="TipoPessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="designacao" Type="varchar" MaxLength="50" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="removeOn" Type="datetime" />
+          <Property Name="createBy" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_Armazem_Localizacao">
+          <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+          <End Role="Armazem" Type="Self.Armazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Armazem">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Localizacao1">
+          <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoArmazem_Armazem">
+          <End Role="Armazem" Type="Self.Armazem" Multiplicity="0..1" />
+          <End Role="ArtigoArmazem" Type="Self.ArtigoArmazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Armazem">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoArmazem">
+              <PropertyRef Name="idArmazem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoArmazem_Artigo">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="ArtigoArmazem" Type="Self.ArtigoArmazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoArmazem">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoPessoa_Artigo">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="ArtigoPessoa" Type="Self.ArtigoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoPessoa">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoPessoa_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+          <End Role="ArtigoPessoa" Type="Self.ArtigoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoPessoa">
+              <PropertyRef Name="idPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doado_Artigo">
+          <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+          <End Role="Doado" Type="Self.Doado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Doado">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_Localizacao">
+          <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_TipoPessoa">
+          <End Role="TipoPessoa" Type="Self.TipoPessoa" Multiplicity="0..1" />
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPessoa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idTipoPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbKumaModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Armazem" EntityType="Self.Armazem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artigo" EntityType="Self.Artigo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtigoArmazem" EntityType="Self.ArtigoArmazem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtigoPessoa" EntityType="Self.ArtigoPessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doado" EntityType="Self.Doado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Localizacao" EntityType="Self.Localizacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPessoa" EntityType="Self.TipoPessoa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Armazem_Localizacao" Association="Self.FK_Armazem_Localizacao">
+            <End Role="Localizacao" EntitySet="Localizacao" />
+            <End Role="Armazem" EntitySet="Armazem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Categoria" Association="Self.FK_Artigo_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Empresa" Association="Self.FK_Artigo_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Localizacao1" Association="Self.FK_Artigo_Localizacao1">
+            <End Role="Localizacao" EntitySet="Localizacao" />
+            <End Role="Artigo" EntitySet="Artigo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="Self.FK_ArtigoArmazem_Armazem">
+            <End Role="Armazem" EntitySet="Armazem" />
+            <End Role="ArtigoArmazem" EntitySet="ArtigoArmazem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="Self.FK_ArtigoArmazem_Artigo">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ArtigoArmazem" EntitySet="ArtigoArmazem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoPessoa_Artigo" Association="Self.FK_ArtigoPessoa_Artigo">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="ArtigoPessoa" EntitySet="ArtigoPessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoPessoa_Pessoa" Association="Self.FK_ArtigoPessoa_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="ArtigoPessoa" EntitySet="ArtigoPessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Empresa" Association="Self.FK_AspNetUsers_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doado_Artigo" Association="Self.FK_Doado_Artigo">
+            <End Role="Artigo" EntitySet="Artigo" />
+            <End Role="Doado" EntitySet="Doado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_Empresa" Association="Self.FK_Pessoa_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Pessoa" EntitySet="Pessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_Localizacao" Association="Self.FK_Pessoa_Localizacao">
+            <End Role="Localizacao" EntitySet="Localizacao" />
+            <End Role="Pessoa" EntitySet="Pessoa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_TipoPessoa" Association="Self.FK_Pessoa_TipoPessoa">
+            <End Role="TipoPessoa" EntitySet="TipoPessoa" />
+            <End Role="Pessoa" EntitySet="Pessoa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbKumaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbKumaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="dbKumaModel.C__MigrationHistory" />
+          <EntitySet Name="Armazems" EntityType="dbKumaModel.Armazem" />
+          <EntitySet Name="Artigoes" EntityType="dbKumaModel.Artigo" />
+          <EntitySet Name="ArtigoArmazems" EntityType="dbKumaModel.ArtigoArmazem" />
+          <EntitySet Name="ArtigoPessoas" EntityType="dbKumaModel.ArtigoPessoa" />
+          <EntitySet Name="AspNetRoles" EntityType="dbKumaModel.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="dbKumaModel.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="dbKumaModel.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="dbKumaModel.AspNetUser" />
+          <EntitySet Name="Audits" EntityType="dbKumaModel.Audit" />
+          <EntitySet Name="Categorias" EntityType="dbKumaModel.Categoria" />
+          <EntitySet Name="Doadoes" EntityType="dbKumaModel.Doado" />
+          <EntitySet Name="Empresas" EntityType="dbKumaModel.Empresa" />
+          <EntitySet Name="Localizacaos" EntityType="dbKumaModel.Localizacao" />
+          <EntitySet Name="Pessoas" EntityType="dbKumaModel.Pessoa" />
+          <EntitySet Name="TipoPessoas" EntityType="dbKumaModel.TipoPessoa" />
+          <AssociationSet Name="FK_Armazem_Localizacao" Association="dbKumaModel.FK_Armazem_Localizacao">
+            <End Role="Localizacao" EntitySet="Localizacaos" />
+            <End Role="Armazem" EntitySet="Armazems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="dbKumaModel.FK_ArtigoArmazem_Armazem">
+            <End Role="Armazem" EntitySet="Armazems" />
+            <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Categoria" Association="dbKumaModel.FK_Artigo_Categoria">
+            <End Role="Categoria" EntitySet="Categorias" />
+            <End Role="Artigo" EntitySet="Artigoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Empresa" Association="dbKumaModel.FK_Artigo_Empresa">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Artigo" EntitySet="Artigoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artigo_Localizacao1" Association="dbKumaModel.FK_Artigo_Localizacao1">
+            <End Role="Localizacao" EntitySet="Localizacaos" />
+            <End Role="Artigo" EntitySet="Artigoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="dbKumaModel.FK_ArtigoArmazem_Artigo">
+            <End Role="Artigo" EntitySet="Artigoes" />
+            <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoPessoa_Artigo" Association="dbKumaModel.FK_ArtigoPessoa_Artigo">
+            <End Role="Artigo" EntitySet="Artigoes" />
+            <End Role="ArtigoPessoa" EntitySet="ArtigoPessoas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doado_Artigo" Association="dbKumaModel.FK_Doado_Artigo">
+            <End Role="Artigo" EntitySet="Artigoes" />
+            <End Role="Doado" EntitySet="Doadoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtigoPessoa_Pessoa" Association="dbKumaModel.FK_ArtigoPessoa_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoas" />
+            <End Role="ArtigoPessoa" EntitySet="ArtigoPessoas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Empresa" Association="dbKumaModel.FK_AspNetUsers_Empresa">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_Empresa" Association="dbKumaModel.FK_Pessoa_Empresa">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Pessoa" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_Localizacao" Association="dbKumaModel.FK_Pessoa_Localizacao">
+            <End Role="Localizacao" EntitySet="Localizacaos" />
+            <End Role="Pessoa" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_TipoPessoa" Association="dbKumaModel.FK_Pessoa_TipoPessoa">
+            <End Role="TipoPessoa" EntitySet="TipoPessoas" />
+            <End Role="Pessoa" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="dbKumaModel.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Armazem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="designacao" Type="Guid" />
+          <Property Name="idLocalizacao" Type="Int32" />
+          <Property Name="createOn" Type="Guid" />
+          <Property Name="removeOn" Type="Guid" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Armazem" ToRole="Localizacao" />
+          <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Armazem" FromRole="Armazem" ToRole="ArtigoArmazem" />
+        </EntityType>
+        <EntityType Name="Artigo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idLocalizacao" Type="Int32" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="referencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="perdidoEm" Type="DateTime" Precision="3" />
+          <Property Name="achadoEm" Type="DateTime" Precision="3" />
+          <Property Name="idEmpresa" Type="Guid" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Categoria" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Artigo" ToRole="Categoria" />
+          <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Artigo" ToRole="Empresa" />
+          <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Artigo" ToRole="Localizacao" />
+          <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="Artigo" ToRole="ArtigoArmazem" />
+          <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="Artigo" ToRole="ArtigoPessoa" />
+          <NavigationProperty Name="Doadoes" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Artigo" ToRole="Doado" />
+        </EntityType>
+        <EntityType Name="ArtigoArmazem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="idArtigo" Type="Guid" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="idArmazem" Type="Guid" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Armazem" Relationship="dbKumaModel.FK_ArtigoArmazem_Armazem" FromRole="ArtigoArmazem" ToRole="Armazem" />
+          <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="ArtigoArmazem" ToRole="Artigo" />
+        </EntityType>
+        <EntityType Name="ArtigoPessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="idArtigo" Type="Guid" />
+          <Property Name="idPessoa" Type="Guid" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="ArtigoPessoa" ToRole="Artigo" />
+          <NavigationProperty Name="Pessoa" Relationship="dbKumaModel.FK_ArtigoPessoa_Pessoa" FromRole="ArtigoPessoa" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="dbKumaModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="idEmpresa" Type="Guid" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_AspNetUsers_Empresa" FromRole="AspNetUser" ToRole="Empresa" />
+          <NavigationProperty Name="AspNetRoles" Relationship="dbKumaModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Audit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Actions" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="OldData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NewData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TableIdValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Categoria" ToRole="Artigo" />
+        </EntityType>
+        <EntityType Name="Doado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="beneficiario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idArtigo" Type="Guid" />
+          <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Doado" ToRole="Artigo" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nuit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pessoaContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="idLocalizacao" Type="Guid" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Empresa" ToRole="Artigo" />
+          <NavigationProperty Name="AspNetUsers" Relationship="dbKumaModel.FK_AspNetUsers_Empresa" FromRole="Empresa" ToRole="AspNetUser" />
+          <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Empresa" FromRole="Empresa" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="Localizacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idPai" Type="Guid" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Armazems" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Localizacao" ToRole="Armazem" />
+          <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Localizacao" ToRole="Artigo" />
+          <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Localizacao" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idTipoPessoa" Type="Guid" />
+          <Property Name="genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dataNascimento" Type="DateTime" Precision="3" />
+          <Property Name="tel1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tel2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idEmpresa" Type="Guid" />
+          <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idLocalizacao" Type="Int32" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Pessoa" FromRole="Pessoa" ToRole="ArtigoPessoa" />
+          <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Pessoa_Empresa" FromRole="Pessoa" ToRole="Empresa" />
+          <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Pessoa" ToRole="Localizacao" />
+          <NavigationProperty Name="TipoPessoa" Relationship="dbKumaModel.FK_Pessoa_TipoPessoa" FromRole="Pessoa" ToRole="TipoPessoa" />
+        </EntityType>
+        <EntityType Name="TipoPessoa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="removeOn" Type="DateTime" Precision="3" />
+          <Property Name="createBy" Type="Guid" />
+          <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_TipoPessoa" FromRole="TipoPessoa" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="FK_Armazem_Localizacao">
+          <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Armazem" Role="Armazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Armazem">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoArmazem_Armazem">
+          <End Type="dbKumaModel.Armazem" Role="Armazem" Multiplicity="0..1" />
+          <End Type="dbKumaModel.ArtigoArmazem" Role="ArtigoArmazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Armazem">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoArmazem">
+              <PropertyRef Name="idArmazem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Categoria">
+          <End Type="dbKumaModel.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Empresa">
+          <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artigo_Localizacao1">
+          <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Artigo">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoArmazem_Artigo">
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+          <End Type="dbKumaModel.ArtigoArmazem" Role="ArtigoArmazem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoArmazem">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoPessoa_Artigo">
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+          <End Type="dbKumaModel.ArtigoPessoa" Role="ArtigoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoPessoa">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doado_Artigo">
+          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Doado" Role="Doado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artigo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Doado">
+              <PropertyRef Name="idArtigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtigoPessoa_Pessoa">
+          <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+          <End Type="dbKumaModel.ArtigoPessoa" Role="ArtigoPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ArtigoPessoa">
+              <PropertyRef Name="idPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="dbKumaModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="dbKumaModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Empresa">
+          <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_Empresa">
+          <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_Localizacao">
+          <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localizacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idLocalizacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_TipoPessoa">
+          <End Type="dbKumaModel.TipoPessoa" Role="TipoPessoa" Multiplicity="0..1" />
+          <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPessoa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pessoa">
+              <PropertyRef Name="idTipoPessoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="dbKumaModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbKumaModelStoreContainer" CdmEntityContainer="dbKumaEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="dbKumaModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Armazems">
+            <EntityTypeMapping TypeName="dbKumaModel.Armazem">
+              <MappingFragment StoreEntitySet="Armazem">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artigoes">
+            <EntityTypeMapping TypeName="dbKumaModel.Artigo">
+              <MappingFragment StoreEntitySet="Artigo">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="achadoEm" ColumnName="achadoEm" />
+                <ScalarProperty Name="perdidoEm" ColumnName="perdidoEm" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtigoArmazems">
+            <EntityTypeMapping TypeName="dbKumaModel.ArtigoArmazem">
+              <MappingFragment StoreEntitySet="ArtigoArmazem">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="idArmazem" ColumnName="idArmazem" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtigoPessoas">
+            <EntityTypeMapping TypeName="dbKumaModel.ArtigoPessoa">
+              <MappingFragment StoreEntitySet="ArtigoPessoa">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="idPessoa" ColumnName="idPessoa" />
+                <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="dbKumaModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="dbKumaModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="dbKumaModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="dbKumaModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Audits">
+            <EntityTypeMapping TypeName="dbKumaModel.Audit">
+              <MappingFragment StoreEntitySet="Audit">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="TableIdValue" ColumnName="TableIdValue" />
+                <ScalarProperty Name="NewData" ColumnName="NewData" />
+                <ScalarProperty Name="OldData" ColumnName="OldData" />
+                <ScalarProperty Name="Actions" ColumnName="Actions" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="dbKumaModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doadoes">
+            <EntityTypeMapping TypeName="dbKumaModel.Doado">
+              <MappingFragment StoreEntitySet="Doado">
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+                <ScalarProperty Name="beneficiario" ColumnName="beneficiario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas">
+            <EntityTypeMapping TypeName="dbKumaModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="pessoaContacto" ColumnName="pessoaContacto" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="nuit" ColumnName="nuit" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localizacaos">
+            <EntityTypeMapping TypeName="dbKumaModel.Localizacao">
+              <MappingFragment StoreEntitySet="Localizacao">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="idPai" ColumnName="idPai" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoas">
+            <EntityTypeMapping TypeName="dbKumaModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="email2" ColumnName="email2" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="tel2" ColumnName="tel2" />
+                <ScalarProperty Name="tel1" ColumnName="tel1" />
+                <ScalarProperty Name="dataNascimento" ColumnName="dataNascimento" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="idTipoPessoa" ColumnName="idTipoPessoa" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPessoas">
+            <EntityTypeMapping TypeName="dbKumaModel.TipoPessoa">
+              <MappingFragment StoreEntitySet="TipoPessoa">
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="designacao" ColumnName="designacao" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="dbKumaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

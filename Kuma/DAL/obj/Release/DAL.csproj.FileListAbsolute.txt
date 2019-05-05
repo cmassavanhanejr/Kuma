@@ -1,0 +1,10 @@
+D:\kuma\Kuma\DAL\bin\Release\DAL.dll.config
+D:\kuma\Kuma\DAL\bin\Release\DAL.dll
+D:\kuma\Kuma\DAL\bin\Release\DAL.pdb
+D:\kuma\Kuma\DAL\bin\Release\EntityFramework.dll
+D:\kuma\Kuma\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\kuma\Kuma\DAL\bin\Release\EntityFramework.xml
+D:\kuma\Kuma\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\kuma\Kuma\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\kuma\Kuma\DAL\obj\Release\DAL.dll
+D:\kuma\Kuma\DAL\obj\Release\DAL.pdb

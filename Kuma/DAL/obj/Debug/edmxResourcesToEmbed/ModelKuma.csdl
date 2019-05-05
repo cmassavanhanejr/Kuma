@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbKumaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbKumaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="dbKumaModel.C__MigrationHistory" />
+    <EntitySet Name="Armazems" EntityType="dbKumaModel.Armazem" />
+    <EntitySet Name="Artigoes" EntityType="dbKumaModel.Artigo" />
+    <EntitySet Name="ArtigoArmazems" EntityType="dbKumaModel.ArtigoArmazem" />
+    <EntitySet Name="ArtigoPessoas" EntityType="dbKumaModel.ArtigoPessoa" />
+    <EntitySet Name="AspNetRoles" EntityType="dbKumaModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="dbKumaModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="dbKumaModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="dbKumaModel.AspNetUser" />
+    <EntitySet Name="Audits" EntityType="dbKumaModel.Audit" />
+    <EntitySet Name="Categorias" EntityType="dbKumaModel.Categoria" />
+    <EntitySet Name="Doadoes" EntityType="dbKumaModel.Doado" />
+    <EntitySet Name="Empresas" EntityType="dbKumaModel.Empresa" />
+    <EntitySet Name="Localizacaos" EntityType="dbKumaModel.Localizacao" />
+    <EntitySet Name="Pessoas" EntityType="dbKumaModel.Pessoa" />
+    <EntitySet Name="TipoPessoas" EntityType="dbKumaModel.TipoPessoa" />
+    <AssociationSet Name="FK_Armazem_Localizacao" Association="dbKumaModel.FK_Armazem_Localizacao">
+      <End Role="Localizacao" EntitySet="Localizacaos" />
+      <End Role="Armazem" EntitySet="Armazems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="dbKumaModel.FK_ArtigoArmazem_Armazem">
+      <End Role="Armazem" EntitySet="Armazems" />
+      <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Categoria" Association="dbKumaModel.FK_Artigo_Categoria">
+      <End Role="Categoria" EntitySet="Categorias" />
+      <End Role="Artigo" EntitySet="Artigoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Empresa" Association="dbKumaModel.FK_Artigo_Empresa">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Artigo" EntitySet="Artigoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Localizacao1" Association="dbKumaModel.FK_Artigo_Localizacao1">
+      <End Role="Localizacao" EntitySet="Localizacaos" />
+      <End Role="Artigo" EntitySet="Artigoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="dbKumaModel.FK_ArtigoArmazem_Artigo">
+      <End Role="Artigo" EntitySet="Artigoes" />
+      <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoPessoa_Artigo" Association="dbKumaModel.FK_ArtigoPessoa_Artigo">
+      <End Role="Artigo" EntitySet="Artigoes" />
+      <End Role="ArtigoPessoa" EntitySet="ArtigoPessoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doado_Artigo" Association="dbKumaModel.FK_Doado_Artigo">
+      <End Role="Artigo" EntitySet="Artigoes" />
+      <End Role="Doado" EntitySet="Doadoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoPessoa_Pessoa" Association="dbKumaModel.FK_ArtigoPessoa_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoas" />
+      <End Role="ArtigoPessoa" EntitySet="ArtigoPessoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUsers_Empresa" Association="dbKumaModel.FK_AspNetUsers_Empresa">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_Empresa" Association="dbKumaModel.FK_Pessoa_Empresa">
+      <End Role="Empresa" EntitySet="Empresas" />
+      <End Role="Pessoa" EntitySet="Pessoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_Localizacao" Association="dbKumaModel.FK_Pessoa_Localizacao">
+      <End Role="Localizacao" EntitySet="Localizacaos" />
+      <End Role="Pessoa" EntitySet="Pessoas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_TipoPessoa" Association="dbKumaModel.FK_Pessoa_TipoPessoa">
+      <End Role="TipoPessoa" EntitySet="TipoPessoas" />
+      <End Role="Pessoa" EntitySet="Pessoas" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="dbKumaModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Armazem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="designacao" Type="Guid" />
+    <Property Name="idLocalizacao" Type="Int32" />
+    <Property Name="createOn" Type="Guid" />
+    <Property Name="removeOn" Type="Guid" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Armazem" ToRole="Localizacao" />
+    <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Armazem" FromRole="Armazem" ToRole="ArtigoArmazem" />
+  </EntityType>
+  <EntityType Name="Artigo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idLocalizacao" Type="Int32" />
+    <Property Name="idCategoria" Type="Int32" />
+    <Property Name="referencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="perdidoEm" Type="DateTime" Precision="3" />
+    <Property Name="achadoEm" Type="DateTime" Precision="3" />
+    <Property Name="idEmpresa" Type="Guid" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Categoria" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Artigo" ToRole="Categoria" />
+    <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Artigo" ToRole="Empresa" />
+    <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Artigo" ToRole="Localizacao" />
+    <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="Artigo" ToRole="ArtigoArmazem" />
+    <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="Artigo" ToRole="ArtigoPessoa" />
+    <NavigationProperty Name="Doadoes" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Artigo" ToRole="Doado" />
+  </EntityType>
+  <EntityType Name="ArtigoArmazem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="idArtigo" Type="Guid" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="idArmazem" Type="Guid" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Armazem" Relationship="dbKumaModel.FK_ArtigoArmazem_Armazem" FromRole="ArtigoArmazem" ToRole="Armazem" />
+    <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="ArtigoArmazem" ToRole="Artigo" />
+  </EntityType>
+  <EntityType Name="ArtigoPessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="idArtigo" Type="Guid" />
+    <Property Name="idPessoa" Type="Guid" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="ArtigoPessoa" ToRole="Artigo" />
+    <NavigationProperty Name="Pessoa" Relationship="dbKumaModel.FK_ArtigoPessoa_Pessoa" FromRole="ArtigoPessoa" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="dbKumaModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="idEmpresa" Type="Guid" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="dbKumaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="dbKumaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_AspNetUsers_Empresa" FromRole="AspNetUser" ToRole="Empresa" />
+    <NavigationProperty Name="AspNetRoles" Relationship="dbKumaModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Actions" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OldData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NewData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TableIdValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Categoria" ToRole="Artigo" />
+  </EntityType>
+  <EntityType Name="Doado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="beneficiario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idArtigo" Type="Guid" />
+    <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Artigo" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Doado" ToRole="Artigo" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nuit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pessoaContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="idLocalizacao" Type="Guid" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Empresa" ToRole="Artigo" />
+    <NavigationProperty Name="AspNetUsers" Relationship="dbKumaModel.FK_AspNetUsers_Empresa" FromRole="Empresa" ToRole="AspNetUser" />
+    <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Empresa" FromRole="Empresa" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Localizacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idPai" Type="Guid" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Armazems" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Localizacao" ToRole="Armazem" />
+    <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Localizacao" ToRole="Artigo" />
+    <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Localizacao" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idTipoPessoa" Type="Guid" />
+    <Property Name="genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataNascimento" Type="DateTime" Precision="3" />
+    <Property Name="tel1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tel2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idEmpresa" Type="Guid" />
+    <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idLocalizacao" Type="Int32" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Pessoa" FromRole="Pessoa" ToRole="ArtigoPessoa" />
+    <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Pessoa_Empresa" FromRole="Pessoa" ToRole="Empresa" />
+    <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Pessoa" ToRole="Localizacao" />
+    <NavigationProperty Name="TipoPessoa" Relationship="dbKumaModel.FK_Pessoa_TipoPessoa" FromRole="Pessoa" ToRole="TipoPessoa" />
+  </EntityType>
+  <EntityType Name="TipoPessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="designacao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createOn" Type="DateTime" Precision="3" />
+    <Property Name="removeOn" Type="DateTime" Precision="3" />
+    <Property Name="createBy" Type="Guid" />
+    <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_TipoPessoa" FromRole="TipoPessoa" ToRole="Pessoa" />
+  </EntityType>
+  <Association Name="FK_Armazem_Localizacao">
+    <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Armazem" Role="Armazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Armazem">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoArmazem_Armazem">
+    <End Type="dbKumaModel.Armazem" Role="Armazem" Multiplicity="0..1" />
+    <End Type="dbKumaModel.ArtigoArmazem" Role="ArtigoArmazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Armazem">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoArmazem">
+        <PropertyRef Name="idArmazem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Categoria">
+    <End Type="dbKumaModel.Categoria" Role="Categoria" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Empresa">
+    <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Localizacao1">
+    <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoArmazem_Artigo">
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+    <End Type="dbKumaModel.ArtigoArmazem" Role="ArtigoArmazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoArmazem">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoPessoa_Artigo">
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+    <End Type="dbKumaModel.ArtigoPessoa" Role="ArtigoPessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoPessoa">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doado_Artigo">
+    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Doado" Role="Doado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Doado">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoPessoa_Pessoa">
+    <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="0..1" />
+    <End Type="dbKumaModel.ArtigoPessoa" Role="ArtigoPessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoPessoa">
+        <PropertyRef Name="idPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbKumaModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbKumaModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUsers_Empresa">
+    <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+    <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AspNetUser">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_Empresa">
+    <End Type="dbKumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_Localizacao">
+    <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_TipoPessoa">
+    <End Type="dbKumaModel.TipoPessoa" Role="TipoPessoa" Multiplicity="0..1" />
+    <End Type="dbKumaModel.Pessoa" Role="Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPessoa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idTipoPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="dbKumaModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="dbKumaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

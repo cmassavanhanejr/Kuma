@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbKumaModelStoreContainer" CdmEntityContainer="dbKumaEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="dbKumaModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Armazems">
+      <EntityTypeMapping TypeName="dbKumaModel.Armazem">
+        <MappingFragment StoreEntitySet="Armazem">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artigoes">
+      <EntityTypeMapping TypeName="dbKumaModel.Artigo">
+        <MappingFragment StoreEntitySet="Artigo">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="achadoEm" ColumnName="achadoEm" />
+          <ScalarProperty Name="perdidoEm" ColumnName="perdidoEm" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArtigoArmazems">
+      <EntityTypeMapping TypeName="dbKumaModel.ArtigoArmazem">
+        <MappingFragment StoreEntitySet="ArtigoArmazem">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="idArmazem" ColumnName="idArmazem" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArtigoPessoas">
+      <EntityTypeMapping TypeName="dbKumaModel.ArtigoPessoa">
+        <MappingFragment StoreEntitySet="ArtigoPessoa">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="idPessoa" ColumnName="idPessoa" />
+          <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="dbKumaModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="dbKumaModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="dbKumaModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="dbKumaModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audits">
+      <EntityTypeMapping TypeName="dbKumaModel.Audit">
+        <MappingFragment StoreEntitySet="Audit">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="TableIdValue" ColumnName="TableIdValue" />
+          <ScalarProperty Name="NewData" ColumnName="NewData" />
+          <ScalarProperty Name="OldData" ColumnName="OldData" />
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="dbKumaModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doadoes">
+      <EntityTypeMapping TypeName="dbKumaModel.Doado">
+        <MappingFragment StoreEntitySet="Doado">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="idArtigo" ColumnName="idArtigo" />
+          <ScalarProperty Name="beneficiario" ColumnName="beneficiario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="dbKumaModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="pessoaContacto" ColumnName="pessoaContacto" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="nuit" ColumnName="nuit" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localizacaos">
+      <EntityTypeMapping TypeName="dbKumaModel.Localizacao">
+        <MappingFragment StoreEntitySet="Localizacao">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="idPai" ColumnName="idPai" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoas">
+      <EntityTypeMapping TypeName="dbKumaModel.Pessoa">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="email2" ColumnName="email2" />
+          <ScalarProperty Name="email1" ColumnName="email1" />
+          <ScalarProperty Name="tel2" ColumnName="tel2" />
+          <ScalarProperty Name="tel1" ColumnName="tel1" />
+          <ScalarProperty Name="dataNascimento" ColumnName="dataNascimento" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="idTipoPessoa" ColumnName="idTipoPessoa" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPessoas">
+      <EntityTypeMapping TypeName="dbKumaModel.TipoPessoa">
+        <MappingFragment StoreEntitySet="TipoPessoa">
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="removeOn" ColumnName="removeOn" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="designacao" ColumnName="designacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="dbKumaModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

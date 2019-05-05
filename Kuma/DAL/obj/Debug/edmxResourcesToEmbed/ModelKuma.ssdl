@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbKumaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Armazem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="designacao" Type="uniqueidentifier" />
+    <Property Name="idLocalizacao" Type="int" />
+    <Property Name="createOn" Type="uniqueidentifier" />
+    <Property Name="removeOn" Type="uniqueidentifier" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Artigo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="designacao" Type="varchar(max)" />
+    <Property Name="descricao" Type="varchar(max)" />
+    <Property Name="idLocalizacao" Type="int" />
+    <Property Name="idCategoria" Type="int" />
+    <Property Name="referencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="perdidoEm" Type="datetime" />
+    <Property Name="achadoEm" Type="datetime" />
+    <Property Name="idEmpresa" Type="uniqueidentifier" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="ArtigoArmazem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idArtigo" Type="uniqueidentifier" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="idArmazem" Type="uniqueidentifier" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="ArtigoPessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idArtigo" Type="uniqueidentifier" />
+    <Property Name="idPessoa" Type="uniqueidentifier" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="idEmpresa" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Audit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="100" />
+    <Property Name="Actions" Type="nvarchar" MaxLength="1" />
+    <Property Name="OldData" Type="text" />
+    <Property Name="NewData" Type="text" />
+    <Property Name="TableIdValue" Type="varchar" MaxLength="50" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="designacao" Type="varchar(max)" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Doado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="beneficiario" Type="varchar" MaxLength="50" />
+    <Property Name="idArtigo" Type="uniqueidentifier" />
+    <Property Name="descricao" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="designacao" Type="varchar" MaxLength="50" />
+    <Property Name="nuit" Type="varchar" MaxLength="50" />
+    <Property Name="endereco" Type="varchar(max)" />
+    <Property Name="telefone" Type="varchar" MaxLength="50" />
+    <Property Name="pessoaContacto" Type="varchar" MaxLength="50" />
+    <Property Name="tel" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="idLocalizacao" Type="uniqueidentifier" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Localizacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="designacao" Type="varchar" MaxLength="50" />
+    <Property Name="idPai" Type="uniqueidentifier" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="nome" Type="varchar(max)" />
+    <Property Name="idTipoPessoa" Type="uniqueidentifier" />
+    <Property Name="genero" Type="varchar" MaxLength="50" />
+    <Property Name="dataNascimento" Type="datetime" />
+    <Property Name="tel1" Type="varchar" MaxLength="50" />
+    <Property Name="tel2" Type="varchar" MaxLength="50" />
+    <Property Name="email1" Type="varchar" MaxLength="50" />
+    <Property Name="email2" Type="varchar" MaxLength="50" />
+    <Property Name="idEmpresa" Type="uniqueidentifier" />
+    <Property Name="endereco" Type="varchar" MaxLength="50" />
+    <Property Name="idLocalizacao" Type="int" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TipoPessoa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="designacao" Type="varchar" MaxLength="50" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="removeOn" Type="datetime" />
+    <Property Name="createBy" Type="uniqueidentifier" />
+  </EntityType>
+  <Association Name="FK_Armazem_Localizacao">
+    <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+    <End Role="Armazem" Type="Self.Armazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Armazem">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artigo_Localizacao1">
+    <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Artigo">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoArmazem_Armazem">
+    <End Role="Armazem" Type="Self.Armazem" Multiplicity="0..1" />
+    <End Role="ArtigoArmazem" Type="Self.ArtigoArmazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Armazem">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoArmazem">
+        <PropertyRef Name="idArmazem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoArmazem_Artigo">
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+    <End Role="ArtigoArmazem" Type="Self.ArtigoArmazem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoArmazem">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoPessoa_Artigo">
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+    <End Role="ArtigoPessoa" Type="Self.ArtigoPessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoPessoa">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArtigoPessoa_Pessoa">
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="0..1" />
+    <End Role="ArtigoPessoa" Type="Self.ArtigoPessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ArtigoPessoa">
+        <PropertyRef Name="idPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUsers_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AspNetUsers">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doado_Artigo">
+    <End Role="Artigo" Type="Self.Artigo" Multiplicity="0..1" />
+    <End Role="Doado" Type="Self.Doado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artigo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Doado">
+        <PropertyRef Name="idArtigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_Localizacao">
+    <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localizacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idLocalizacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pessoa_TipoPessoa">
+    <End Role="TipoPessoa" Type="Self.TipoPessoa" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPessoa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="idTipoPessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbKumaModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Armazem" EntityType="Self.Armazem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artigo" EntityType="Self.Artigo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArtigoArmazem" EntityType="Self.ArtigoArmazem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArtigoPessoa" EntityType="Self.ArtigoPessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Audit" EntityType="Self.Audit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doado" EntityType="Self.Doado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Localizacao" EntityType="Self.Localizacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPessoa" EntityType="Self.TipoPessoa" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Armazem_Localizacao" Association="Self.FK_Armazem_Localizacao">
+      <End Role="Localizacao" EntitySet="Localizacao" />
+      <End Role="Armazem" EntitySet="Armazem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Categoria" Association="Self.FK_Artigo_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Artigo" EntitySet="Artigo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Empresa" Association="Self.FK_Artigo_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Artigo" EntitySet="Artigo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artigo_Localizacao1" Association="Self.FK_Artigo_Localizacao1">
+      <End Role="Localizacao" EntitySet="Localizacao" />
+      <End Role="Artigo" EntitySet="Artigo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="Self.FK_ArtigoArmazem_Armazem">
+      <End Role="Armazem" EntitySet="Armazem" />
+      <End Role="ArtigoArmazem" EntitySet="ArtigoArmazem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="Self.FK_ArtigoArmazem_Artigo">
+      <End Role="Artigo" EntitySet="Artigo" />
+      <End Role="ArtigoArmazem" EntitySet="ArtigoArmazem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoPessoa_Artigo" Association="Self.FK_ArtigoPessoa_Artigo">
+      <End Role="Artigo" EntitySet="Artigo" />
+      <End Role="ArtigoPessoa" EntitySet="ArtigoPessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArtigoPessoa_Pessoa" Association="Self.FK_ArtigoPessoa_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="ArtigoPessoa" EntitySet="ArtigoPessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUsers_Empresa" Association="Self.FK_AspNetUsers_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doado_Artigo" Association="Self.FK_Doado_Artigo">
+      <End Role="Artigo" EntitySet="Artigo" />
+      <End Role="Doado" EntitySet="Doado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_Empresa" Association="Self.FK_Pessoa_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_Localizacao" Association="Self.FK_Pessoa_Localizacao">
+      <End Role="Localizacao" EntitySet="Localizacao" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pessoa_TipoPessoa" Association="Self.FK_Pessoa_TipoPessoa">
+      <End Role="TipoPessoa" EntitySet="TipoPessoa" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
