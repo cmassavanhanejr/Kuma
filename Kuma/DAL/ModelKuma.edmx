@@ -33,7 +33,6 @@
           <Property Name="id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="designacao" Type="varchar(max)" />
           <Property Name="descricao" Type="varchar(max)" />
-          <Property Name="idLocalizacao" Type="int" />
           <Property Name="idCategoria" Type="int" />
           <Property Name="referencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="createOn" Type="datetime" />
@@ -137,6 +136,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="designacao" Type="varchar(max)" />
+          <Property Name="referencia" Type="int" />
           <Property Name="createOn" Type="datetime" />
           <Property Name="removeOn" Type="datetime" />
           <Property Name="createBy" Type="uniqueidentifier" />
@@ -150,6 +150,17 @@
           <Property Name="idArtigo" Type="uniqueidentifier" />
           <Property Name="descricao" Type="varchar(max)" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbKuma.dbo.Documento' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Documento">
+          <Property Name="id" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'dbKuma.dbo.Electronico' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Electronico">
+          <Property Name="id" Type="int" />
+          <Property Name="idArmazem" Type="uniqueidentifier" />
+        </EntityType>-->
         <EntityType Name="Empresa">
           <Key>
             <PropertyRef Name="id" />
@@ -241,18 +252,6 @@
             </Principal>
             <Dependent Role="Artigo">
               <PropertyRef Name="idEmpresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Artigo_Localizacao1">
-          <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
-          <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Localizacao">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Artigo">
-              <PropertyRef Name="idLocalizacao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -450,10 +449,6 @@
             <End Role="Empresa" EntitySet="Empresa" />
             <End Role="Artigo" EntitySet="Artigo" />
           </AssociationSet>
-          <AssociationSet Name="FK_Artigo_Localizacao1" Association="Self.FK_Artigo_Localizacao1">
-            <End Role="Localizacao" EntitySet="Localizacao" />
-            <End Role="Artigo" EntitySet="Artigo" />
-          </AssociationSet>
           <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="Self.FK_ArtigoArmazem_Armazem">
             <End Role="Armazem" EntitySet="Armazem" />
             <End Role="ArtigoArmazem" EntitySet="ArtigoArmazem" />
@@ -544,10 +539,6 @@
             <End Role="Empresa" EntitySet="Empresas" />
             <End Role="Artigo" EntitySet="Artigoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Artigo_Localizacao1" Association="dbKumaModel.FK_Artigo_Localizacao1">
-            <End Role="Localizacao" EntitySet="Localizacaos" />
-            <End Role="Artigo" EntitySet="Artigoes" />
-          </AssociationSet>
           <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="dbKumaModel.FK_ArtigoArmazem_Artigo">
             <End Role="Artigo" EntitySet="Artigoes" />
             <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
@@ -623,7 +614,6 @@
           <Property Name="id" Type="Guid" Nullable="false" />
           <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="idLocalizacao" Type="Int32" />
           <Property Name="idCategoria" Type="Int32" />
           <Property Name="referencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="createOn" Type="DateTime" Precision="3" />
@@ -634,7 +624,6 @@
           <Property Name="createBy" Type="Guid" />
           <NavigationProperty Name="Categoria" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Artigo" ToRole="Categoria" />
           <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Artigo" ToRole="Empresa" />
-          <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Artigo" ToRole="Localizacao" />
           <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="Artigo" ToRole="ArtigoArmazem" />
           <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="Artigo" ToRole="ArtigoPessoa" />
           <NavigationProperty Name="Doadoes" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Artigo" ToRole="Doado" />
@@ -736,6 +725,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="referencia" Type="Int32" />
           <Property Name="createOn" Type="DateTime" Precision="3" />
           <Property Name="removeOn" Type="DateTime" Precision="3" />
           <Property Name="createBy" Type="Guid" />
@@ -782,7 +772,6 @@
           <Property Name="removeOn" Type="DateTime" Precision="3" />
           <Property Name="createBy" Type="Guid" />
           <NavigationProperty Name="Armazems" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Localizacao" ToRole="Armazem" />
-          <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Localizacao" ToRole="Artigo" />
           <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Localizacao" ToRole="Pessoa" />
         </EntityType>
         <EntityType Name="Pessoa">
@@ -865,18 +854,6 @@
             </Principal>
             <Dependent Role="Artigo">
               <PropertyRef Name="idEmpresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Artigo_Localizacao1">
-          <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
-          <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Localizacao">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Artigo">
-              <PropertyRef Name="idLocalizacao" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1047,7 +1024,6 @@
                 <ScalarProperty Name="createOn" ColumnName="createOn" />
                 <ScalarProperty Name="referencia" ColumnName="referencia" />
                 <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-                <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
                 <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="designacao" ColumnName="designacao" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1145,6 +1121,7 @@
                 <ScalarProperty Name="createBy" ColumnName="createBy" />
                 <ScalarProperty Name="removeOn" ColumnName="removeOn" />
                 <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
                 <ScalarProperty Name="designacao" ColumnName="designacao" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

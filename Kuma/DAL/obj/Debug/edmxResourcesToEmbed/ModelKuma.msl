@@ -34,7 +34,6 @@
           <ScalarProperty Name="createOn" ColumnName="createOn" />
           <ScalarProperty Name="referencia" ColumnName="referencia" />
           <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-          <ScalarProperty Name="idLocalizacao" ColumnName="idLocalizacao" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="designacao" ColumnName="designacao" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -132,6 +131,7 @@
           <ScalarProperty Name="createBy" ColumnName="createBy" />
           <ScalarProperty Name="removeOn" ColumnName="removeOn" />
           <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
           <ScalarProperty Name="designacao" ColumnName="designacao" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

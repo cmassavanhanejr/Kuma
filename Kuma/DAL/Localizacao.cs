@@ -18,7 +18,6 @@ namespace DAL
         public Localizacao()
         {
             this.Armazems = new HashSet<Armazem>();
-            this.Artigoes = new HashSet<Artigo>();
             this.Pessoas = new HashSet<Pessoa>();
         }
     
@@ -31,8 +30,6 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Armazem> Armazems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Artigo> Artigoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pessoa> Pessoas { get; set; }
     }

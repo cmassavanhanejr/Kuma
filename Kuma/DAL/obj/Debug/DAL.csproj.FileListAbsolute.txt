@@ -8,3 +8,13 @@ D:\kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\kuma\Kuma\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\kuma\Kuma\DAL\obj\Debug\DAL.dll
 D:\kuma\Kuma\DAL\obj\Debug\DAL.pdb
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\DAL.dll.config
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\DAL.dll
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\DAL.pdb
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\EntityFramework.dll
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\EntityFramework.xml
+D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.dll
+D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.pdb

@@ -22,6 +22,7 @@ namespace DAL
     
         public int id { get; set; }
         public string designacao { get; set; }
+        public Nullable<int> referencia { get; set; }
         public Nullable<System.DateTime> createOn { get; set; }
         public Nullable<System.DateTime> removeOn { get; set; }
         public Nullable<System.Guid> createBy { get; set; }

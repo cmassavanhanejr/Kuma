@@ -33,10 +33,6 @@
       <End Role="Empresa" EntitySet="Empresas" />
       <End Role="Artigo" EntitySet="Artigoes" />
     </AssociationSet>
-    <AssociationSet Name="FK_Artigo_Localizacao1" Association="dbKumaModel.FK_Artigo_Localizacao1">
-      <End Role="Localizacao" EntitySet="Localizacaos" />
-      <End Role="Artigo" EntitySet="Artigoes" />
-    </AssociationSet>
     <AssociationSet Name="FK_ArtigoArmazem_Artigo" Association="dbKumaModel.FK_ArtigoArmazem_Artigo">
       <End Role="Artigo" EntitySet="Artigoes" />
       <End Role="ArtigoArmazem" EntitySet="ArtigoArmazems" />
@@ -112,7 +108,6 @@
     <Property Name="id" Type="Guid" Nullable="false" />
     <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="idLocalizacao" Type="Int32" />
     <Property Name="idCategoria" Type="Int32" />
     <Property Name="referencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="createOn" Type="DateTime" Precision="3" />
@@ -123,7 +118,6 @@
     <Property Name="createBy" Type="Guid" />
     <NavigationProperty Name="Categoria" Relationship="dbKumaModel.FK_Artigo_Categoria" FromRole="Artigo" ToRole="Categoria" />
     <NavigationProperty Name="Empresa" Relationship="dbKumaModel.FK_Artigo_Empresa" FromRole="Artigo" ToRole="Empresa" />
-    <NavigationProperty Name="Localizacao" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Artigo" ToRole="Localizacao" />
     <NavigationProperty Name="ArtigoArmazems" Relationship="dbKumaModel.FK_ArtigoArmazem_Artigo" FromRole="Artigo" ToRole="ArtigoArmazem" />
     <NavigationProperty Name="ArtigoPessoas" Relationship="dbKumaModel.FK_ArtigoPessoa_Artigo" FromRole="Artigo" ToRole="ArtigoPessoa" />
     <NavigationProperty Name="Doadoes" Relationship="dbKumaModel.FK_Doado_Artigo" FromRole="Artigo" ToRole="Doado" />
@@ -225,6 +219,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="designacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="referencia" Type="Int32" />
     <Property Name="createOn" Type="DateTime" Precision="3" />
     <Property Name="removeOn" Type="DateTime" Precision="3" />
     <Property Name="createBy" Type="Guid" />
@@ -271,7 +266,6 @@
     <Property Name="removeOn" Type="DateTime" Precision="3" />
     <Property Name="createBy" Type="Guid" />
     <NavigationProperty Name="Armazems" Relationship="dbKumaModel.FK_Armazem_Localizacao" FromRole="Localizacao" ToRole="Armazem" />
-    <NavigationProperty Name="Artigoes" Relationship="dbKumaModel.FK_Artigo_Localizacao1" FromRole="Localizacao" ToRole="Artigo" />
     <NavigationProperty Name="Pessoas" Relationship="dbKumaModel.FK_Pessoa_Localizacao" FromRole="Localizacao" ToRole="Pessoa" />
   </EntityType>
   <EntityType Name="Pessoa">
@@ -354,18 +348,6 @@
       </Principal>
       <Dependent Role="Artigo">
         <PropertyRef Name="idEmpresa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Artigo_Localizacao1">
-    <End Type="dbKumaModel.Localizacao" Role="Localizacao" Multiplicity="0..1" />
-    <End Type="dbKumaModel.Artigo" Role="Artigo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Localizacao">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Artigo">
-        <PropertyRef Name="idLocalizacao" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

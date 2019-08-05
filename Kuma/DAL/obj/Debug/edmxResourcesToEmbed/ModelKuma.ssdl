@@ -28,7 +28,6 @@
     <Property Name="id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="designacao" Type="varchar(max)" />
     <Property Name="descricao" Type="varchar(max)" />
-    <Property Name="idLocalizacao" Type="int" />
     <Property Name="idCategoria" Type="int" />
     <Property Name="referencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="createOn" Type="datetime" />
@@ -132,6 +131,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="designacao" Type="varchar(max)" />
+    <Property Name="referencia" Type="int" />
     <Property Name="createOn" Type="datetime" />
     <Property Name="removeOn" Type="datetime" />
     <Property Name="createBy" Type="uniqueidentifier" />
@@ -145,6 +145,17 @@
     <Property Name="idArtigo" Type="uniqueidentifier" />
     <Property Name="descricao" Type="varchar(max)" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'dbKuma.dbo.Documento' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Documento">
+          <Property Name="id" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'dbKuma.dbo.Electronico' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Electronico">
+          <Property Name="id" Type="int" />
+          <Property Name="idArmazem" Type="uniqueidentifier" />
+        </EntityType>-->
   <EntityType Name="Empresa">
     <Key>
       <PropertyRef Name="id" />
@@ -236,18 +247,6 @@
       </Principal>
       <Dependent Role="Artigo">
         <PropertyRef Name="idEmpresa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Artigo_Localizacao1">
-    <End Role="Localizacao" Type="Self.Localizacao" Multiplicity="0..1" />
-    <End Role="Artigo" Type="Self.Artigo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Localizacao">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Artigo">
-        <PropertyRef Name="idLocalizacao" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -443,10 +442,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Artigo_Empresa" Association="Self.FK_Artigo_Empresa">
       <End Role="Empresa" EntitySet="Empresa" />
-      <End Role="Artigo" EntitySet="Artigo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Artigo_Localizacao1" Association="Self.FK_Artigo_Localizacao1">
-      <End Role="Localizacao" EntitySet="Localizacao" />
       <End Role="Artigo" EntitySet="Artigo" />
     </AssociationSet>
     <AssociationSet Name="FK_ArtigoArmazem_Armazem" Association="Self.FK_ArtigoArmazem_Armazem">

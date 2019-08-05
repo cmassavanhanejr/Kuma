@@ -5,27 +5,26 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="43641d40c2e944a390c8ad2cb5215cb1" Name="Diagram1">
-        <EntityTypeShape EntityType="dbKumaModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="dbKumaModel.Armazem" Width="1.5" PointX="3" PointY="7.25" />
-        <EntityTypeShape EntityType="dbKumaModel.Artigo" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="dbKumaModel.ArtigoArmazem" Width="1.5" PointX="5.25" PointY="7.25" />
-        <EntityTypeShape EntityType="dbKumaModel.ArtigoPessoa" Width="1.5" PointX="8.25" PointY="7.25" />
-        <EntityTypeShape EntityType="dbKumaModel.AspNetRole" Width="1.5" PointX="3.75" PointY="17.5" />
-        <EntityTypeShape EntityType="dbKumaModel.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="11.125" />
-        <EntityTypeShape EntityType="dbKumaModel.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="13.75" />
-        <EntityTypeShape EntityType="dbKumaModel.AspNetUser" Width="1.5" PointX="6" PointY="11.125" />
-        <EntityTypeShape EntityType="dbKumaModel.Audit" Width="1.5" PointX="7.75" PointY="3.75" />
-        <EntityTypeShape EntityType="dbKumaModel.Categoria" Width="1.5" PointX="0.75" PointY="3.5" />
-        <EntityTypeShape EntityType="dbKumaModel.Doado" Width="1.5" PointX="5.25" PointY="2.5" />
-        <EntityTypeShape EntityType="dbKumaModel.Empresa" Width="1.5" PointX="0.75" PointY="11.375" />
-        <EntityTypeShape EntityType="dbKumaModel.Localizacao" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="dbKumaModel.Pessoa" Width="1.5" PointX="3" PointY="11.25" />
-        <EntityTypeShape EntityType="dbKumaModel.TipoPessoa" Width="1.5" PointX="0.75" PointY="16.5" />
+        <EntityTypeShape EntityType="dbKumaModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="dbKumaModel.Armazem" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="dbKumaModel.Artigo" Width="1.5" PointX="6" PointY="5" />
+        <EntityTypeShape EntityType="dbKumaModel.ArtigoArmazem" Width="1.5" PointX="8.25" PointY="2.75" />
+        <EntityTypeShape EntityType="dbKumaModel.ArtigoPessoa" Width="1.5" PointX="8.25" PointY="6.375" />
+        <EntityTypeShape EntityType="dbKumaModel.AspNetRole" Width="1.5" PointX="3.75" PointY="15.25" />
+        <EntityTypeShape EntityType="dbKumaModel.AspNetUserClaim" Width="1.5" PointX="8.25" PointY="9.75" />
+        <EntityTypeShape EntityType="dbKumaModel.AspNetUserLogin" Width="1.5" PointX="8.25" PointY="15.5" />
+        <EntityTypeShape EntityType="dbKumaModel.AspNetUser" Width="1.5" PointX="6" PointY="9.875" />
+        <EntityTypeShape EntityType="dbKumaModel.Audit" Width="1.5" PointX="10.75" PointY="1.375" />
+        <EntityTypeShape EntityType="dbKumaModel.Categoria" Width="1.5" PointX="3.75" PointY="5.875" />
+        <EntityTypeShape EntityType="dbKumaModel.Doado" Width="1.5" PointX="8.25" PointY="12.625" />
+        <EntityTypeShape EntityType="dbKumaModel.Empresa" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="dbKumaModel.Localizacao" Width="1.5" PointX="3.75" PointY="2.375" />
+        <EntityTypeShape EntityType="dbKumaModel.Pessoa" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="dbKumaModel.TipoPessoa" Width="1.5" PointX="0.75" PointY="7" />
         <AssociationConnector Association="dbKumaModel.FK_Armazem_Localizacao" />
         <AssociationConnector Association="dbKumaModel.FK_ArtigoArmazem_Armazem" />
         <AssociationConnector Association="dbKumaModel.FK_Artigo_Categoria" />
         <AssociationConnector Association="dbKumaModel.FK_Artigo_Empresa" />
-        <AssociationConnector Association="dbKumaModel.FK_Artigo_Localizacao1" />
         <AssociationConnector Association="dbKumaModel.FK_ArtigoArmazem_Artigo" />
         <AssociationConnector Association="dbKumaModel.FK_ArtigoPessoa_Artigo" />
         <AssociationConnector Association="dbKumaModel.FK_Doado_Artigo" />

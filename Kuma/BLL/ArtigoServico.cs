@@ -110,7 +110,7 @@ namespace BLL
                 inativo.designacao = ex.designacao;
                 inativo.descricao = ex.descricao;
                 inativo.categoria = ex.Categoria.designacao;
-                inativo.localizacao = ex.Localizacao.designacao;
+                //inativo.localizacao = ex.Localizacao.designacao;
                 /*inativo.contato = ex.contato;
                 inativo.endereco = ex.endereco;
                 inativo.email = ex.email;
@@ -135,7 +135,7 @@ namespace BLL
                 inativo.designacao = ex.designacao;
                 inativo.descricao = ex.descricao;
                 //  inativo.categoria = ex.Categoria.designacao;
-                inativo.localizacao = ex.Localizacao.designacao;
+                //inativo.localizacao = ex.Localizacao.designacao;
                 inativo.data = ex.createOn.Value.ToShortDateString();
                 inativos.Add(inativo);
             }
@@ -155,7 +155,7 @@ namespace BLL
                 inativo.designacao = ex.designacao;
                 inativo.descricao = ex.descricao;
                 //  inativo.categoria = ex.Categoria.designacao;
-                inativo.localizacao = ex.Localizacao.designacao;
+                //inativo.localizacao = ex.Localizacao.designacao;
                 inativo.data = ex.createOn.Value.ToShortDateString();
                 inativos.Add(inativo);
 

@@ -73,7 +73,7 @@ namespace WEB
 
                         artigo.designacao = typeItem;
                         artigo.descricao = outrosDetalhesLost;
-                        artigo.idLocalizacao = int.Parse(locationItem);
+                        //artigo.idLocalizacao = int.Parse(locationItem);
                         if (BLL.User.empresa != null) artigo.idEmpresa = BLL.User.empresa.id;
                         if (id == "0") artigo.perdidoEm = DateTime.Parse(date);
                         if (id == "1") artigo.achadoEm = DateTime.Parse(date);

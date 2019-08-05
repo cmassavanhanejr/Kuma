@@ -25,7 +25,6 @@ namespace DAL
         public System.Guid id { get; set; }
         public string designacao { get; set; }
         public string descricao { get; set; }
-        public Nullable<int> idLocalizacao { get; set; }
         public Nullable<int> idCategoria { get; set; }
         public int referencia { get; set; }
         public Nullable<System.DateTime> createOn { get; set; }
@@ -37,7 +36,6 @@ namespace DAL
     
         public virtual Categoria Categoria { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual Localizacao Localizacao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ArtigoArmazem> ArtigoArmazems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
