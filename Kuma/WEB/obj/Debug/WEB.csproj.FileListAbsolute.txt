@@ -68,9 +68,6 @@ D:\kuma\Kuma\WEB\bin\Microsoft.Owin.Security.OAuth.xml
 D:\kuma\Kuma\WEB\obj\Debug\WEB.csprojResolveAssemblyReference.cache
 D:\kuma\Kuma\WEB\obj\Debug\WEB.dll
 D:\kuma\Kuma\WEB\obj\Debug\WEB.pdb
-D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.csprojResolveAssemblyReference.cache
-D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.dll
-D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.pdb
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\roslyn\csc.exe
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -138,3 +135,6 @@ D:\kuma_repgit\Kuma\Kuma\WEB\bin\Microsoft.Owin.Security.Google.xml
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\Microsoft.Owin.Security.Twitter.xml
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\kuma_repgit\Kuma\Kuma\WEB\bin\Microsoft.Owin.Security.OAuth.xml
+D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.csprojResolveAssemblyReference.cache
+D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.dll
+D:\kuma_repgit\Kuma\Kuma\WEB\obj\Debug\WEB.pdb

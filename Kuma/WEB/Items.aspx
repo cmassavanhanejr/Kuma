@@ -24,7 +24,7 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <div class="form-group">
                         <label>Categoria</label>
                         <select class="form-control select2" style="width: 100%;">
@@ -39,9 +39,9 @@
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Localização</label>
+                        <label>Armazém</label>
                         <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
                             <option>Alabama</option>
                             <option>Alaska</option>
@@ -55,21 +55,10 @@
 
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-3">
-                    <!-- Date range -->
-                    <div class="form-group">
-                        <label>Data Perdido/Achado:</label>
-
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control pull-right" id="reservation">
-                        </div>
-                        <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-                </div>
+              <!--  <div class="col-sm-3">
+                    <!-- Date range 
+            
+                </div>-->
                 <div class="col-sm-1">
                     <div class="form-group">
                         <label></label>

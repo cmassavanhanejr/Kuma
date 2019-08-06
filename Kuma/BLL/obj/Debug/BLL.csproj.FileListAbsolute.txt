@@ -27,9 +27,6 @@ D:\kuma\Kuma\BLL\bin\Debug\Newtonsoft.Json.xml
 D:\kuma\Kuma\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\kuma\Kuma\BLL\obj\Debug\BLL.dll
 D:\kuma\Kuma\BLL\obj\Debug\BLL.pdb
-D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
-D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.dll
-D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.pdb
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\BLL.dll.config
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\BLL.dll
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\BLL.pdb
@@ -56,3 +53,6 @@ D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\Microsoft.Owin.Security.xml
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\kuma_repgit\Kuma\Kuma\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.dll
+D:\kuma_repgit\Kuma\Kuma\BLL\obj\Debug\BLL.pdb

@@ -13,7 +13,7 @@
                 <div class="inner">
                     <h3>150</h3>
 
-                    <p>Perdidos reportados</p>
+                    <p>Bens reportados</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -28,7 +28,7 @@
                 <div class="inner">
                     <h3>53</h3>
 
-                    <p>Artigos encontrados</p>
+                    <p>Bens encontrados</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -75,7 +75,7 @@
             <!-- AREA CHART -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Artigos perdidos no último mês</h3>
+                    <h3 class="box-title">Bens perdidos no último mês</h3>
 
                     <div class="box-tools pull-right">
                     </div>
@@ -95,7 +95,7 @@
             <!-- LINE CHART -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Artigos encontrados no último mês</h3>
+                    <h3 class="box-title">Bens encontrados no último mês</h3>
 
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -121,7 +121,7 @@
         <div class="col-xs-12 col-md-6">
 
 
-            <h3 class="panel-list-header">Artigos Perdidos Recentemente</h3>
+            <h3 class="panel-list-header">Bens Perdidos Recentemente</h3>
 
             <div class="box">
                 <div class="box-body">
@@ -343,7 +343,7 @@
         <div class="col-xs-12 col-md-6">
 
 
-            <h3 class="panel-list-header">Artigos Achados Recentemente</h3>
+            <h3 class="panel-list-header">Bens Achados Recentemente</h3>
 
             <a class="item box box-default" href="#">
                 <div class="box">
