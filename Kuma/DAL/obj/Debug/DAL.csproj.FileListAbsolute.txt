@@ -18,3 +18,13 @@ D:\kuma_repgit\Kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.dll
 D:\kuma_repgit\Kuma\Kuma\DAL\obj\Debug\DAL.pdb
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\DAL.dll.config
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\DAL.dll
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\DAL.pdb
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\EntityFramework.dll
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\EntityFramework.xml
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\obj\Debug\DAL.dll
+F:\JuniorStaff\Projectos\Kuma\Repo\Kuma\Kuma\DAL\obj\Debug\DAL.pdb
